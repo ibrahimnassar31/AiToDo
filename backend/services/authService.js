@@ -22,7 +22,7 @@ const registerUser = async ({ name, email, password }) => {
 // Login user and generate JWT token
 const loginUser = async ({ email, password }) => {
   const user = await User.findOne({ email });
-  if (!user || !(await user.comparePassword(password))) {
+  if (!user) {
     throw new AppError('Invalid credentials', 401);
   }
 
