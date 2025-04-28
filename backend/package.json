@@ -27,7 +27,8 @@
     "mongoose": "^8.14.0",
     "mongose": "^0.0.2-security",
     "morgan": "^1.10.0",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.1",
