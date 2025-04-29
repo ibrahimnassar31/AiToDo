@@ -12,6 +12,8 @@ import userRoutes from './routes/user.route.js';
 import taskRoutes from './routes/task.route.js';
 import analyticsRoutes from './routes/analytics.route.js';
 import setupSwagger from './swagger.js';
+import { setupSessionAndCsrf } from './middleware/csrf.js';
+
 // Load environment variables
 dotenv.config();
 
@@ -30,7 +32,7 @@ app.use(errorHandler); // Error handling middleware for async errors
 
 // Setup Swagger for API documentation
 setupSwagger(app);
-
+setupSessionAndCsrf(app);
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
