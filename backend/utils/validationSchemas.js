@@ -11,4 +11,27 @@ const loginSchema = Joi.object({
   password: Joi.string().required(),
 });
 
-export { registerSchema, loginSchema };
+const taskSchema = Joi.object({
+  title: Joi.string().min(3).required(),
+  description: Joi.string().allow('').optional(),
+  priority: Joi.string().valid('Low', 'Medium', 'High').optional(),
+  dueDate: Joi.date().optional(),
+  status: Joi.string().valid('Pending', 'Completed').optional(),
+  category: Joi.string().allow('').optional(),
+  aiSuggestions: Joi.object().optional(),
+});
+
+// Validation schema for task updates (partial)
+const taskUpdateSchema = Joi.object({
+  title: Joi.string().min(3).optional(),
+  description: Joi.string().allow('').optional(),
+  priority: Joi.string().valid('Low', 'Medium', 'High').optional(),
+  dueDate: Joi.date().optional(),
+  status: Joi.string().valid('Pending', 'Completed').optional(),
+  category: Joi.string().allow('').optional(),
+  aiSuggestions: Joi.object().optional(),
+});
+
+
+
+export { registerSchema, loginSchema , taskSchema, taskUpdateSchema };

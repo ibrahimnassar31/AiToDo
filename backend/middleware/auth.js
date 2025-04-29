@@ -7,6 +7,7 @@ const auth = async (req, res, next) => {
   try {
     const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
+      logger.warn('Authentication failed: No token provided');
       throw new AppError('Authentication required', 401);
     }
 
