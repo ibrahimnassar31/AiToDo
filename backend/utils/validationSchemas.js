@@ -32,6 +32,9 @@ const taskUpdateSchema = Joi.object({
   aiSuggestions: Joi.object().optional(),
 });
 
+const analyticsQuerySchema = Joi.object({
+  startDate: Joi.date().optional(),
+  endDate: Joi.date().optional(),
+});
 
-
-export { registerSchema, loginSchema , taskSchema, taskUpdateSchema };
+export { registerSchema, loginSchema , taskSchema, taskUpdateSchema,analyticsQuerySchema };
